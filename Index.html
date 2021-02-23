@@ -1,0 +1,287 @@
+<!-- Created by codewithpawan -->
+
+<!-- 
+Lenght converter using jQuery. 
+
+Code by codewithpawan.
+ver 1.0 (23.03.2020)
+-->
+
+<!doctype html>
+<html>
+<head>
+<title>Lenght converter</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Share Tech Mono'>
+</head>
+
+<body>
+
+<div id="in">
+   <h3>Lenght converter</h3>
+
+<!-- user input -->
+    <input id="cm" type="number" name="centimeter"> 
+        <label for="cm">centimeter</label><br>
+    <input id="i" type="number" name="inch"> 
+        <label for="i">inch</label><br>
+    <input id="fo" type="number" name="foot"> 
+        <label for="fo">foot</label><br>
+    <input id="ya" type="number" name="yard"> 
+        <label for="ya">yard</label><br>
+    <input id="m" type="number" name="meter"> 
+        <label for="m">meter</label><br>
+    <input id="km" type="number" name="kilometer"> 
+        <label for="km">kilometer</label><br>
+    <input id="mi" type="number" name="mile"> 
+        <label for="mi">mile</label>
+</div>
+
+<script>
+//set default on focus
+function setDef() {
+    $("#cm, #m, #km, #i, #ya, #fo, #mi").val((NaN));    
+};
+
+//trigger
+$(document).ready(function() {
+    $('#cm, #m, #km, #i, #ya, #fo, #mi').focus(function(event) {
+    setDef();
+    });
+});
+
+//convert cm to all
+function getCM() {
+    
+    //get user input
+    var cm = parseFloat($("#cm").val()); 
+    
+    //convert
+    var cmin = cm / 2.54;
+    var cmfo = cm / 30.48;
+    var cmya = cm / 91.44;
+    var cmm = cm / 100;
+    var cmkm = cm / 100000;
+    var cmmi = cm / 160934;
+    
+    //display 
+    $("#i").val((cmin).toFixed(2));    
+    $("#fo").val((cmfo).toFixed(2));    
+    $("#ya").val((cmya).toFixed(2));    
+    $("#m").val((cmm).toFixed(2));    
+    $("#km").val((cmkm).toFixed(5));    
+    $("#mi").val((cmmi).toFixed(6));    
+};
+
+//trigger
+$(document).ready(function() {
+    $('#cm').blur(function(event) {
+    getCM();
+    });
+    $('#cm').keyup(function(event) {
+    getCM();
+    });
+});
+
+//convert inch to all
+function getINCH() {
+    
+    //get user input
+    var i = parseFloat($("#i").val()); 
+    
+    //convert
+    var icm = i * 2.54;
+    var ifo = i / 12;
+    var iya = i / 36;
+    var im = i / 39.37;
+    var ikm = i / 100000;
+    var imi = i / 63360;
+    
+    //display 
+    $("#cm").val((icm).toFixed(2));    
+    $("#fo").val((ifo).toFixed(2));    
+    $("#ya").val((iya).toFixed(2));    
+    $("#m").val((im).toFixed(2));    
+    $("#km").val((ikm).toFixed(5));    
+    $("#mi").val((imi).toFixed(6));    
+};
+
+//trigger
+$(document).ready(function() {
+    $('#i').blur(function(event) {
+    getINCH();
+    });
+    $('#i').keyup(function(event) {
+    getINCH();
+    });
+});
+
+//convert foot to all
+function getFOOT() {
+    
+    //get user input
+    var fo = parseFloat($("#fo").val()); 
+    
+    //convert
+    var focm = fo * 30.48;
+    var foi = fo * 12;
+    var foya = fo / 3;
+    var fom = fo / 3.281;
+    var fokm = fo / 3281;
+    var fomi = fo / 5280;
+    
+    //display 
+    $("#cm").val((focm).toFixed(2));    
+    $("#i").val((foi).toFixed(2));    
+    $("#ya").val((foya).toFixed(2));    
+    $("#m").val((fom).toFixed(2));    
+    $("#km").val((fokm).toFixed(5));    
+    $("#mi").val((fomi).toFixed(6));    
+};
+
+//trigger
+$(document).ready(function() {
+    $('#fo').blur(function(event) {
+    getFOOT();
+    });
+    $('#fo').keyup(function(event) {
+    getFOOT();
+    });
+});
+
+//convert yard to all
+function getYa() {
+    
+    //get user input
+    var ya = parseFloat($("#ya").val()); 
+    
+    //convert
+    var yacm = ya * 91.44;
+    var yain = ya * 36;
+    var yafo = ya / 3;
+    var yam = ya / 1.094;
+    var yakm = ya / 1094;
+    var yami = ya / 1760;
+    
+    //display 
+    $("#cm").val((yacm).toFixed(2));    
+    $("#i").val((yain).toFixed(2));    
+    $("#fo").val((yafo).toFixed(2));    
+    $("#m").val((yam).toFixed(2));    
+    $("#km").val((yakm).toFixed(5));    
+    $("#mi").val((yami).toFixed(6));    
+};
+
+//trigger
+$(document).ready(function() {
+    $('#ya').blur(function(event) {
+    getYa();
+    });
+    $('#ya').keyup(function(event) {
+    getYa();
+    });
+});
+
+//convert m to all
+function getM() {
+    
+    //get user input
+    var m = parseFloat($("#m").val()); 
+    
+    //convert
+    var mcm = m * 100;
+    var min = m * 39.37;
+    var mfo = m * 3.281;
+    var mya = m * 1.094;
+    var mkm = m / 1000;
+    var mmi = m / 1609;
+    
+    //display 
+    $("#cm").val((mcm).toFixed(2));    
+    $("#i").val((min).toFixed(2));    
+    $("#fo").val((mfo).toFixed(2));    
+    $("#ya").val((mya).toFixed(2));    
+    $("#km").val((mkm).toFixed(3));    
+    $("#mi").val((mmi).toFixed(4));    
+};
+
+//trigger
+$(document).ready(function() {
+    $('#m').blur(function(event) {
+    getM();
+    });
+    $('#m').keyup(function(event) {
+    getM();
+    });
+});
+
+//convert km to all
+function getKM() {
+    
+    //get user input
+    var km = parseFloat($("#km").val()); 
+    
+    //convert
+    var kmcm = km * 100000;
+    var kmin = km * 39370;
+    var kmfo = km * 3281;
+    var kmya = km * 1094;
+    var kmm = km * 1000;
+    var kmmi = km / 1.609;
+    
+    //display 
+    $("#cm").val((kmcm).toFixed(2));    
+    $("#i").val((kmin).toFixed(2));    
+    $("#fo").val((kmfo).toFixed(2));    
+    $("#ya").val((kmya).toFixed(2));    
+    $("#m").val((kmm).toFixed(3));    
+    $("#mi").val((kmmi).toFixed(4));    
+};
+
+//trigger
+$(document).ready(function() {
+    $('#km').blur(function(event) {
+    getKM();
+    });
+    $('#km').keyup(function(event) {
+    getKM();
+    });
+});
+
+//convert km to all
+function getMiMiMi() {
+    
+    //get user input
+    var mi = parseFloat($("#mi").val()); 
+    
+    //convert
+    var micm = mi * 160934;
+    var miin = mi * 63360;
+    var mifo = mi * 5280;
+    var miya = mi * 1760;
+    var mim = mi * 1609;
+    var mikm = mi * 1.609;
+    
+    //display 
+    $("#cm").val((micm).toFixed(2));    
+    $("#i").val((miin).toFixed(2));    
+    $("#fo").val((mifo).toFixed(2));    
+    $("#ya").val((miya).toFixed(2));    
+    $("#m").val((mim).toFixed(3));    
+    $("#km").val((mikm).toFixed(4));    
+};
+
+//trigger
+$(document).ready(function() {
+    $('#mi').blur(function(event) {
+    getMiMiMi();
+    });
+    $('#mi').keyup(function(event) {
+    getMiMiMi();
+    });
+});
+
+
+</script>
+</body>
+</html>
