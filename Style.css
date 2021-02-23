@@ -1,0 +1,49 @@
+/* Created by codewithpawan */
+
+body {
+    background-color: #000080;
+    color: #adff2f;
+    font-family: "Share Tech Mono";
+    background: radial-gradient(ellipse at center, #000080  0%, black 75%);
+    }
+
+#in {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    }
+
+h3 {
+    text-align: center;
+    }
+
+label {
+    color: #00ffff;
+    }
+
+input {
+    text-align: center;
+    display: block;
+      width: 25%;
+      border: none;
+      border-radius: 0; 
+      border-bottom: solid white 1px;      
+      color: white;
+      text-align: center;
+      font-size: 16px;
+      font-family: "Share Tech Mono";
+     background: none;
+     }
+ 
+input:focus{
+    outline: none;
+    border-bottom: solid #adff2f 1px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #adff2f;
+    }
+
+input:focus + label{
+    color: #adff2f;
+    font-weight: bold;
+    }
